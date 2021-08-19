@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-//단어의 개수
-public class Main {
+public class Main1152 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
