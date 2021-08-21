@@ -6,24 +6,17 @@ public class Main10871 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
+        st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int X = Integer.parseInt(st.nextToken());
+        int num;
 
         st = new StringTokenizer(br.readLine());
         for(int i=0;i<N;i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+            num = Integer.parseInt(st.nextToken());
+            if(X > num)
+                System.out.print(num+" ");
         }
-
-        int max = arr[0];
-        int min = arr[0];
-
-        for(int i=1;i<N;i++){
-            if(max < arr[i])
-                max = arr[i];
-            else if(min > arr[i])
-                min = arr[i];
-        }
-
-        System.out.println(min+" "+max);
+        System.out.println();
     }
 }
