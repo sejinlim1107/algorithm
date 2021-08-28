@@ -20,8 +20,8 @@ public class Main2775 {
                     if(j==0)
                         num+=z;
                     else {
-                        tmp += num+
-                        num+=tmp;
+                        //tmp += num+
+                        //num+=tmp;
                     }
                 }
             }
