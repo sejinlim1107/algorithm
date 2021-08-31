@@ -10,9 +10,19 @@ public class Main2869 {
         int B = Integer.parseInt(st.nextToken());
         int V = Integer.parseInt(st.nextToken());
 
+        int day = (V-B)/(A-B);
+
+        if((V-B)%(A-B) != 0)
+            day++;
+
+        System.out.println(day);
+
+        /*
         int res = (int)Math.ceil((double)(V-A)/(A-B));
 
         System.out.println(res+1);
+
+         */
     }
 }
 
