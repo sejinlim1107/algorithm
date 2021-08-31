@@ -19,14 +19,12 @@ public class Main10989 {
 
         for(int i=0;i<=max;i++){
             if(num[i]!=0){
-                for(int j=0;j<num[i];j++)
-                    sb.append(i+"\n");
+                sb.append((i+"\n").repeat(num[i]));
             }
         }
         System.out.println(sb);
     }
 }
-
 
 /*
 import java.util.*;
@@ -45,12 +43,14 @@ public class Main10989 {
             map.put(tmp, map.getOrDefault(tmp,0)+1);
         }
 
-        for(Integer i : map.keySet()){
-            for(int j=0;j<map.get(i);j++){
-                sb.append(i+"\n");
-            }
+        TreeMap<Integer,Integer> tm = new TreeMap<Integer,Integer>(map);
+        Iterator<Integer> keys = tm.keySet().iterator();
+
+        while(keys.hasNext()){
+            int key = keys.next();
+            sb.append((key+"\n").repeat(map.get(key)));
         }
         System.out.println(sb);
     }
 }
- */
+*/

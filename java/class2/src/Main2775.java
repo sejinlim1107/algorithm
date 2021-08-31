@@ -7,6 +7,15 @@ public class Main2775 {
         StringTokenizer st;
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
+
+        for(int i=0;i<T;i++) {
+            st = new StringTokenizer(br.readLine());
+            int k = Integer.parseInt(st.nextToken());
+            int n = Integer.parseInt(st.nextToken());
+
+            
+        }
+        /*
         int num = 0;
         int tmp = 0;
 
@@ -27,6 +36,8 @@ public class Main2775 {
             }
         }
 
+
+         */
 
     }
 }
