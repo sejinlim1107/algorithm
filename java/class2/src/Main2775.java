@@ -13,7 +13,7 @@ public class Main2775 {
             int k = Integer.parseInt(st.nextToken());
             int n = Integer.parseInt(st.nextToken());
 
-            
+
         }
         /*
         int num = 0;
