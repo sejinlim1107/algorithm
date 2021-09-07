@@ -3,16 +3,23 @@ import java.io.*;
 public class Main1110 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String numS = br.readLine();
-        int N = Integer.parseInt(numS);
+        String num = br.readLine();
+        //int N = Integer.parseInt(numS);
         int cycle = 1;
-        int newNum = (N<10)?N:(numS.charAt(0)+numS.charAt(1))-'0';
+        String newNum = num;
+        //int newNum = (N<10)?N:(numS.charAt(0)+numS.charAt(1))-'0';
 
-        while(N != newNum){
-            if(N<10){
-                newNum = numS.charAt(0)-'0';
+        while(num.equals(newNum)){
+            if(newNum.length()==1) {
+                cycle++;
+                newNum = newNum+newNum;
             }
-            newNum = numS.charAt(0)+numS.charAt(1)
+            else{
+                cycle++;
+                newNum = Character.toString(newNum.charAt(1))+Character.toString(newNum.charAt(0)+newNum.charAt(1)-'0');
+            }
         }
+
+        System.out.println(cycle);
     }
 }
