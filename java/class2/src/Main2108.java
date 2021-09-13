@@ -16,13 +16,15 @@ public class Main2108 {
                 human[i][j] = human[i][j-1]+human[i-1][j];
             }
         }
-
+/*
         for(int i=0;i<T;i++) {
             int k = Integer.parseInt(br.readLine());
             int n = Integer.parseInt(br.readLine());
 
             sb.append(human[k][n]).append("\n");
         }
+
+ */
         System.out.println(sb);
     }
 }
