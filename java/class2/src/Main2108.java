@@ -6,25 +6,21 @@ public class Main2108 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
-        int human[][] = new int[15][15];
 
-        for(int i=1;i<15;i++) //0층 셋팅
-            human[0][i] = i;
+        int num[] = new int[N];
+        double avg = 0;
 
-        for(int i=1;i<15;i++){
-            for(int j=1;j<15;j++){
-                human[i][j] = human[i][j-1]+human[i-1][j];
-            }
-        }
-/*
-        for(int i=0;i<T;i++) {
-            int k = Integer.parseInt(br.readLine());
-            int n = Integer.parseInt(br.readLine());
-
-            sb.append(human[k][n]).append("\n");
+        for(int i=0;i<N;i++) {
+            num[i] = Integer.parseInt(br.readLine());
+            avg += num[i];
         }
 
- */
+        Arrays.sort(num);
+        sb.append(Math.round(avg/N)).append("\n");
+        sb.append(num[(int)Math.floor(N/2)]).append("\n");
+        sb.append(num[(int)Math.floor(N/2)]).append("\n");
+        sb.append(num[N-1]-num[0]).append("\n");
+
         System.out.println(sb);
     }
 }
