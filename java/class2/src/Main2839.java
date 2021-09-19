@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
+=======
+import com.sun.tools.javac.Main;
+
+>>>>>>> Stashed changes
 import java.util.*;
 import java.io.*;
 
 public class Main2839 {
+<<<<<<< Updated upstream
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -50,3 +56,24 @@ public class Main2839 {
     }
 }
 
+=======
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        int[] d = new int[5001];
+
+        for(int i=3;i<=N;i++){
+            if(i%3==0)
+                d[i] = i/3;
+            else if(i%5==0)
+                if(d[i] != 0)
+                    d[i] = Math.min(d[i],i/5);
+                else d[i] = i/5;
+            else
+                d[i] = -1;
+        }
+
+        System.out.println(d[N]);
+    }
+}
+>>>>>>> Stashed changes
