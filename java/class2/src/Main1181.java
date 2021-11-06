@@ -1,38 +1,63 @@
 import java.util.*;
 import java.io.*;
-import java.util.Map.Entry;
 
 public class Main1181 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
-        ArrayList<ArrayList<String>> sen = new ArrayList<ArrayList<String>>();
+
+        String[] s = new String[N];
 
         for(int i=0;i<N;i++){
-            ArrayList<String> s = new ArrayList<>();
+            s[i] = br.readLine();
         }
 
-        /*
-        Map<String, Integer> map = new HashMap<String, Integer>();
-
-        for(int i=0;i<N;i++){
-            String s = br.readLine();
-            map.put(s, s.length());
-        }
-
-        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(map.entrySet());
-        Collections.sort(list, new Comparator<Entry<String, Integer>>() {
+        Arrays.sort(s, new Comparator<String>() {
             @Override
-            public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
-                return o1.getValue().compareTo(o2.getValue());
+            public int compare(String o1, String o2) {
+                if(o1.length() == o2.length())
+                    return o1.compareTo(o2);
+                else
+                    return o1.length()-o2.length();
             }
         });
 
-        //Object[] keys = map.keySet().toArray(new String[0]);
-        //Arrays.sort(keys);
-         */
+        sb.append(s[0]).append("\n");
+        for(int i=1;i<s.length;i++){
+            if(s[i].equals(s[i-1]))
+                continue;
+            sb.append(s[i]).append("\n");
+        }
 
+        System.out.println(sb);
+
+        /*
+        HashSet<String> set = new HashSet<String>();
+
+        for(int i=0;i<N;i++){
+            set.add(br.readLine());
+        }
+
+        ArrayList<String> al = new ArrayList(set);
+
+        Collections.sort(al, new Comparator<String>(){
+            @Override
+            public int compare(String o1, String o2){
+                if(o1.length() == o2.length())
+                    return o1.compareTo(o2);
+                else if(o1.length() > o2.length())
+                    return 1;
+                else
+                    return -1;
+            }
+        });
+
+        for(int i=0;i<al.size();i++){
+            sb.append(al.get(i)).append("\n");
+        }
+        System.out.println(sb);
+        */
     }
 }
 
