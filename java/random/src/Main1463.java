@@ -12,15 +12,14 @@ public class Main1463 {
             int a1=n;
             int a2=n;
 
-            ans[i] = ans[i-1]+1;
+            ans[i] = ans[i-1]+1; //1을 빼는 경우
             if(i%2==0){
-                a1 = i/2-1;
+                a1 = ans[i/2]+1;
             }
             if(i%3==0){
-                a2 = i/3-1;
+                a2 = ans[i/3]+1;
             }
             ans[i] = Math.min(Math.min(a1,a2),ans[i]);
-            System.out.println(i+": "+ans[i]);
         }
 
         System.out.println(ans[n]);
