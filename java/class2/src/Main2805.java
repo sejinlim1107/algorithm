@@ -16,25 +16,26 @@ public class Main2805 {
 
         Arrays.sort(h);
 
-        int len = h[h.length-1];
+        int top = h[h.length-1];
+        int down = 0;
+        int len = 0;
 
-        while(true){
+        while(down < top){
             long all = 0;
+            len = (top+down)/2;
             for(int i=0;i<n;i++){
                 int tmp = h[i] - len;
                 if(tmp>0){
                     all += tmp;
                 }
             }
-            if(all == m){
-                System.out.println(len);
-                return;
+            if(all > m){
+                down = len+1;
             }
-            else if(all > m){
-                System.out.println(++len);
-                return;
+            else if(all < m){
+                top = len-1;
             }
-            len--;
         }
+        System.out.println(len);
     }
 }
