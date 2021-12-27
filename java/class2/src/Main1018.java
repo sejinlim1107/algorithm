@@ -4,10 +4,11 @@ import java.util.*;
 public class Main1018 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int m = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
         char[][] board = new char[n][m];
-        int min = 400;
+        int min = 32;
 
         //배열에 넣기
         for(int i=0;i<n;i++) {
@@ -22,14 +23,32 @@ public class Main1018 {
                 int tmp1 = 0;
                 int tmp2 = 0;
                 for(int k=i;k<i+8;k++){
-                    for(int l=j;l<j+8;l++){
-                        if(k%2==0 && board[k][l]=='W'){ //첫번째 줄, 세번째 줄 ...
-
+                    for(int l=j;l<j+8;l=l+2){
+                        if(k%2==0){ //첫번째 줄, 세번째 줄 ...
+                            if(board[k][l]=='W')
+                                tmp1++;
+                            else
+                                tmp2++;
+                            if(board[k][l+1]=='B')
+                                tmp1++;
+                            else
+                                tmp2++;
+                        }
+                        else{
+                            if(board[k][l]=='B')
+                                tmp1++;
+                            else
+                                tmp2++;
+                            if(board[k][l+1]=='W')
+                                tmp1++;
+                            else
+                                tmp2++;
                         }
                     }
                 }
+                min = Math.min(min, Math.min(tmp1, tmp2));
             }
         }
-
+        System.out.println(min);
     }
 }
