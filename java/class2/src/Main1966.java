@@ -30,21 +30,17 @@ public class Main1966 {
                 int importance = check[1];
 
                 if(sorted[order] != importance){
-                    //System.out.println("else if");
                     queue.add(check);
                 }
                 else if(index == m) {
-                    //System.out.println("if");
                     cnt++;
                     break;
                 }
                 else{
-                    //System.out.println("else");
                     order--;
                     cnt++;
                 }
             }
-            //System.out.println("sb "+cnt);
             sb.append(cnt).append("\n");
             queue.clear();
         }
