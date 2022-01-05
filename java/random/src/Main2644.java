@@ -5,6 +5,7 @@ public class Main2644 {
     public static boolean[] visited;
     public static ArrayList<ArrayList<Integer>> family = new ArrayList<ArrayList<Integer>>();
     public static int res = -1;
+    public static int cnt = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,20 +28,22 @@ public class Main2644 {
             family.get(y).add(x);
         }
 
-        dfs(a, b, 0);
+        dfs(a, b);
         System.out.println(res);
     }
 
-    public static void dfs(int v1, int v2, int cnt){
+    public static void dfs(int v1, int v2){
         if(v1 == v2){
             res = cnt;
             return;
         }
         visited[v1] = true;
+        cnt++;
         for(int i=0;i<family.get(v1).size();i++){
             int index = family.get(v1).get(i);
             if(!visited[index]){
-                dfs(index, v2, cnt+1);
+                dfs(index, v2);
+                cnt--;
             }
         }
     }
