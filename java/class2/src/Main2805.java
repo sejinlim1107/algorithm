@@ -7,35 +7,33 @@ public class Main2805 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int [] h = new int[n];
+        int [] tree = new int[n];
         st = new StringTokenizer(br.readLine());
+        int max = 0;
 
         for(int i=0;i<n;i++){
-            h[i] = Integer.parseInt(st.nextToken());
+            tree[i] = Integer.parseInt(st.nextToken());
+            if(tree[i] > max) max = tree[i];
         }
 
-        Arrays.sort(h);
+        int min = 0;
+        int mid = 0;
 
-        int top = h[h.length-1];
-        int down = 0;
-        int len = 0;
-
-        while(down < top){
-            long all = 0;
-            len = (top+down)/2;
+        while(min < max){
+            long sum = 0;
+            mid = min+(max-min)/2; //overflow 방지
             for(int i=0;i<n;i++){
-                int tmp = h[i] - len;
-                if(tmp>0){
-                    all += tmp;
-                }
+                int tmp = tree[i]-mid;
+                if(tmp > 0)
+                    sum+=tmp;
             }
-            if(all > m){
-                down = len+1;
+            if(sum < m) { // 나무를 더 길게 잘라야 함. 즉 톱날 높이 줄여야함
+                max = mid;
             }
-            else if(all < m){
-                top = len-1;
+            else {
+                min = mid + 1;
             }
         }
-        System.out.println(len);
+        System.out.println(min-1); //upper bound로 풀었기 때문에 -1 해줌
     }
 }
