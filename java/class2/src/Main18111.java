@@ -23,8 +23,8 @@ public class Main18111 {
         int cnt = 257;
 
         while(cnt-->0) {
-            int one = 0; //
-            int two = 0;
+            int one = 0; // 1번 방법
+            int two = 0; // 2번 방법
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
                     int tmp = world[i][j] - height;
