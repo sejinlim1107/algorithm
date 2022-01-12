@@ -8,26 +8,13 @@ public class Main17626 {
         int[] dp = new int[n+1]; // 개수 저장
 
         Arrays.fill(dp, 5);
+        dp[0] = 0;
         dp[1] = 1;
-        dp[2] = 2;
-        dp[3] = 3;
 
-        int k = 2;
-
-        while(k<=n){
-            int pow = (int)Math.pow(k,2);
-            if(pow >= n+1)
-                break;
-            else {
-                dp[pow] = 1;
-                k++;
-            }
-        }
-
-        for(int i=3;i<n+1;i++){
-            for(int j=1;j<i;j++){
-                int tmp = dp[i-j] + dp[j];
-                dp[i] = Math.min(tmp, dp[i]);
+        for(int i=2;i<n+1;i++){
+            for(int j=1; (j*j)<=i;j++){
+                int tmp = dp[i-j*j]+1; // 여기서 +1은 제곱수 하나를 의미
+                dp[i] = Math.min(tmp,dp[i]); // dp[0]=0 이라서 i==j*j일 때 제곱수 계산이 (1로) 됨
             }
         }
         System.out.println(dp[n]);
