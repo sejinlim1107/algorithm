@@ -5,6 +5,22 @@ import java.io.*;
 public class Main2581 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int[] num = new int[n];
+
+        for(int i=0;i<n;i++){
+            num[i] = Integer.parseInt(br.readLine());
+        }
+
+        Arrays.sort(num);
+
+        for(int i=0;i<n;i++){
+            System.out.println(num[i]);
+        }
+    }
+    /*
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int m = Integer.parseInt(br.readLine());
         int n = Integer.parseInt(br.readLine());
         int min = -1;
@@ -29,4 +45,6 @@ public class Main2581 {
         System.out.println(sum);
         System.out.println(min);
     }
+
+     */
 }
