@@ -55,6 +55,7 @@ public class Main1012 {
                 if (field[newx][newy]==1) {
                     queue.add(new int[]{newx, newy});
                     field[newx][newy] = -1; // 큐에 넣고 방문했다고 표시. 그래야 타고 갔다가 다시 돌아올 때 내가 방문했던 곳인지 알 수 있음
+                    //맨 처음 함수 호출 시 입력 받은 값은 주변 애들에 의해 다시 큐에 넣어질 것임
                 }
             }
         }
