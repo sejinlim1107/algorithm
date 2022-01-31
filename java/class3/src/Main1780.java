@@ -24,19 +24,19 @@ public class Main1780 {
     }
     public static void dc(int r, int c, int size){
         int target = paper[r][c];
-        for(int i=0;i<r+size;i++){
-            for(int j=0;j<c+size;j++){
+        for(int i=r;i<r+size;i++){
+            for(int j=c;j<c+size;j++){
                 if(paper[i][j] != target){
-                    int newSize = size/3;
-                    dc(r,c,newSize);
-                    dc(r,c+newSize,newSize);
-                    dc(r,c+newSize+newSize,newSize);
-                    dc(r+newSize,c,newSize);
-                    dc(r+newSize,c+newSize,newSize);
-                    dc(r+newSize,c+newSize+newSize,newSize);
-                    dc(r+newSize+newSize,c,newSize);
-                    dc(r+newSize+newSize,c+newSize,newSize);
-                    dc(r+newSize+newSize,c+newSize+newSize,newSize);
+                    size /= 3;
+                    dc(r,c,size);
+                    dc(r,c+size,size);
+                    dc(r,c+size+size,size);
+                    dc(r+size,c,size);
+                    dc(r+size,c+size,size);
+                    dc(r+size,c+size+size,size);
+                    dc(r+size+size,c,size);
+                    dc(r+size+size,c+size,size);
+                    dc(r+size+size,c+size+size,size);
                     return;
                 }
             }
