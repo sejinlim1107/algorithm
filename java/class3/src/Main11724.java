@@ -11,7 +11,7 @@ public class Main11724 {
         n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         int cnt = 0;
-        list = new ArrayList<ArrayList<Integer>>();
+        list = new ArrayList<>();
         visited = new boolean[n+1];
         for(int i=0;i<=n;i++){
             list.add(new ArrayList<>());
@@ -36,13 +36,14 @@ public class Main11724 {
     public static void bfs(int n){
         Queue<Integer> queue = new LinkedList<>();
         queue.add(n);
+        visited[n] = true;
         while(!queue.isEmpty()){
             int tmp = queue.poll();
-            System.out.println(tmp);
-            for(int i=1;i<=list.get(tmp).size();i++){
-                if(!visited[i]) {
-                    queue.add(i);
-                    visited[i] = true;
+            for(int i=0;i<list.get(tmp).size();i++){
+                int idx = list.get(tmp).get(i);
+                if(!visited[idx]) {
+                    queue.add(idx);
+                    visited[idx] = true;
                 }
             }
         }
