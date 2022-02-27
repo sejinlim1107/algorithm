@@ -9,20 +9,14 @@ public class Main5430 {
         while(t-->0){
             String f = br.readLine(); // 함수
             int n = Integer.parseInt(br.readLine());
-            if(n==0){ // 빈 배열 일 때
-                if(f.contains("D")){
-                    sb.append("error").append("\n");
-                }
-                continue;
-            }
             boolean mode = true; // true면 앞에서부터, false면 뒤에서부터
             boolean error = false;
             String arr = br.readLine();
-            Deque<Integer> deque = new LinkedList<>();
+            Deque<String> deque = new LinkedList<>();
             arr = arr.substring(1,arr.length()-1); // [] 뺀 문자열
             String[] num = arr.split(",");
             for(int i=0;i<n;i++){
-                deque.add(Integer.parseInt(num[i]));
+                deque.add(num[i]);
             }
             for(int i=0;i<f.length();i++){
                 if(f.charAt(i)=='R'){
@@ -45,15 +39,17 @@ public class Main5430 {
             }
             if(error)
                 sb.append("error").append("\n");
+            else if(deque.size()==0)
+                sb.append("[]").append("\n");
             else{
                 sb.append("[");
                 if(mode) {
-                    for (Iterator<Integer> it = deque.iterator(); it.hasNext();) {
+                    for (Iterator<String> it = deque.iterator(); it.hasNext();) {
                         sb.append(it.next() + ",");
                     }
                 }
                 else{
-                    for (Iterator<Integer> it = deque.descendingIterator(); it.hasNext();) {
+                    for (Iterator<String> it = deque.descendingIterator(); it.hasNext();) {
                         sb.append(it.next() + ",");
                     }
                 }
