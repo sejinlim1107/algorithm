@@ -14,16 +14,11 @@ public class Main4880 {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
-            if(b-a == c-b && b-a!=0){
+            if(b-a == c-b){
                 sb.append("AP ").append(c+b-a).append("\n");
             }
             else{
-                int r = 1;
-                if(a!=0)
-                    r = b/a;
-                else if(b!=0)
-                    r = c/b;
-                sb.append("GP ").append(c*r).append("\n");
+                sb.append("GP ").append(c*(b/a)).append("\n");
             }
         }
         System.out.println(sb);
