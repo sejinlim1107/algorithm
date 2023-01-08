@@ -15,7 +15,7 @@ public class Main11659 {
             arr[i] = arr[i - 1] + Integer.parseInt(st.nextToken()); // 누적합 저장
         }
 
-        while (M-- > 0) {
+        while (M-->0) {
             st = new StringTokenizer(br.readLine());
             int i = Integer.parseInt(st.nextToken());
             int j = Integer.parseInt(st.nextToken());
